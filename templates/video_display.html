@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Important Segments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        video {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Important Video Segments</h1>
+    <video width="500" height="500" controls>
+        <source src="{{ url_for('static', filename='important_segments.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <br>
+    <button><a href="{{ url_for('upload_form') }}">Upload another video</a></button>
+</body>
+</html>

@@ -1,10 +1,14 @@
-from flask import Flask, request, render_template, send_file
+from flask import Flask, request, render_template, send_file, redirect, url_for
 from moviepy.editor import VideoFileClip
 import speech_recognition as sr
 import spacy
 import os
 
 app = Flask(__name__)
+
+# Ensure you have a static directory to store the video
+if not os.path.exists('static'):
+    os.makedirs('static')
 
 def video_to_audio(video_path, audio_path):
     video = VideoFileClip(video_path)
@@ -16,7 +20,7 @@ def audio_to_text(audio_path):
     with sr.AudioFile(audio_path) as source:
         audio_data = recognizer.record(source)
         try:
-            text = recognizer.recognize_google(audio_data)  # Removed timeout
+            text = recognizer.recognize_google(audio_data)
         except sr.RequestError as e:
             return f"Could not request results from Google Speech Recognition service; {e}"
         except sr.UnknownValueError:
@@ -36,7 +40,7 @@ def extract_important_text(text):
 
 @app.route('/')
 def upload_form():
-    return render_template('upload.html')
+    return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -56,10 +60,10 @@ def upload_file():
         important_sentences = extract_important_text(text)
         timestamps = [10, 20, 30]  # Modify as needed
         important_video = VideoFileClip(video_path).subclip(timestamps[0], timestamps[-1])
-        important_video_path = "important_segments.mp4"
+        important_video_path = os.path.join('static', "important_segments.mp4")
         important_video.write_videofile(important_video_path)
 
-        return send_file(important_video_path, as_attachment=True)
+        return render_template('video_display.html')  # Render the video display page
 
 if __name__ == '__main__':
     app.run(debug=True)
