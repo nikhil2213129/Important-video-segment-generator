@@ -37,11 +37,9 @@ To run this application, you need to have the following installed:
 
 5 . Create directory names:
 
-     ```bash
        mkdir uploads
 5 . Create directory names:
 
-      ```bash
        mkdir templates
 
 6. create file name index.html inside templates folder
