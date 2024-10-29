@@ -29,3 +29,15 @@ To run this application, you need to have the following installed:
 
    ```bash
    pip install Flask moviepy SpeechRecognition spacy
+4. Download the SpaCy language model:
+   
+      ```bash
+   python -m spacy download en_core_web_sm
+5 . Create directory names:
+
+      ```bash
+   mkdir uploads
+      
+
+
+
