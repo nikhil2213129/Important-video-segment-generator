@@ -29,6 +29,7 @@ To run this application, you need to have the following installed:
 
    ```bash
    pip install Flask moviepy SpeechRecognition spacy
+   
 4. Download the SpaCy language model:
    
       ```bash
@@ -37,6 +38,17 @@ To run this application, you need to have the following installed:
 
       ```bash
    mkdir uploads
+5 . Create directory names:
+
+      ```bash
+   mkdir templates
+
+6. create file name index.html inside templates folder
+7. create video_display.html in the same templates folder
+8. Run the application using:
+         ```bash
+   python app.py
+
       
 
 
