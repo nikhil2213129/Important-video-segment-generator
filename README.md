@@ -34,14 +34,15 @@ To run this application, you need to have the following installed:
    
       ```bash
    python -m spacy download en_core_web_sm
+
+5 . Create directory names:
+
+     ```bash
+       mkdir uploads
 5 . Create directory names:
 
       ```bash
-   mkdir uploads
-5 . Create directory names:
-
-      ```bash
-   mkdir templates
+       mkdir templates
 
 6. create file name index.html inside templates folder
 7. create video_display.html in the same templates folder
